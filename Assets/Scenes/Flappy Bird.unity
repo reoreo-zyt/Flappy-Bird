@@ -152,6 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56bd75937aa85404f879c1a28a0177b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1982869937}
+  scoreText: {fileID: 1555949451}
+  playButton: {fileID: 961500651}
+  gameOver: {fileID: 296336252}
 --- !u!4 &237031622
 Transform:
   m_ObjectHideFlags: 0
@@ -179,7 +183,7 @@ GameObject:
   - component: {fileID: 296336255}
   - component: {fileID: 296336254}
   m_Layer: 5
-  m_Name: Image
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,7 +646,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 961500654}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 237031621}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &961500654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +733,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 468}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555949451
 MonoBehaviour:
@@ -828,6 +844,7 @@ GameObject:
   - component: {fileID: 1708355699}
   - component: {fileID: 1708355698}
   - component: {fileID: 1708355701}
+  - component: {fileID: 1708355702}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Obstacle
@@ -913,6 +930,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSpeed: 1
+--- !u!61 &1708355702
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708355696}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1763075458
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +988,7 @@ MonoBehaviour:
   prefeb: {fileID: 2485112723926669304, guid: bb5f52ca89d70e145affd4c251040ac3, type: 3}
   spawnRate: 1
   minHeight: -1
-  maxHeight: 1
+  maxHeight: 2
 --- !u!4 &1763075460
 Transform:
   m_ObjectHideFlags: 0

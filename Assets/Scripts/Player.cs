@@ -19,6 +19,15 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void OnEnable()
+    {
+        // 重置鸟的位置
+        Vector3 position = transform.position;
+        position.y = 0f;
+        transform.position = position;
+        direction = Vector3.zero;
+    }
+
     private void Start()
     {
         // 重复调用函数
